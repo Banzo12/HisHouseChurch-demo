@@ -15,13 +15,9 @@
 
 <body>
 
-  <!-- ================================================
-       NAVIGATION
-       ================================================ -->
+  <!-- NAVIGATION -->
   <nav class="navbar" id="navbar">
     <div class="nav-container">
-
-      <!-- Logo -->
       <a href="index.html" class="nav-logo">
         <div class="nav-logo-img-wrap">
           <img src="images/logo.jpg" alt="His House Church logo">
@@ -32,16 +28,13 @@
         </div>
       </a>
 
-      <!-- Desktop Menu -->
       <ul class="nav-menu" id="navMenu">
         <li><a href="index.html" class="nav-link">Home</a></li>
 
-        <!-- ABOUT — dropdown trigger -->
         <li class="nav-item-dropdown">
           <a href="about.html" class="nav-link nav-link-dropdown">
             About <i class="fas fa-chevron-down nav-chevron"></i>
           </a>
-          <!-- The sleek fade-in panel -->
           <div class="dropdown-panel">
             <a href="about.html" class="dropdown-link">
               <i class="fas fa-church"></i>
@@ -89,12 +82,14 @@
   <main>
 
     <!-- ================================================
-         HERO — centred, large, GBC-style
+         HERO — hero-content reveal is triggered on load
          ================================================ -->
     <section class="hero">
       <div class="hero-bg-image"></div>
       <div class="hero-overlay"></div>
-      <div class="hero-content container">
+
+      <!-- reveal class here — triggered by DOMContentLoaded in JS -->
+      <div class="hero-content container reveal">
         <span class="hero-script">Welcome to</span>
         <h1>His House<br><span class="text-gold">Church</span></h1>
         <p class="hero-tagline">#Dominion · Genesis 1:28</p>
@@ -110,29 +105,29 @@
     </section>
 
     <!-- ================================================
-         STATS STRIP — animated count-up
+         STATS STRIP
          ================================================ -->
     <section class="stats-strip">
       <div class="stats-container">
-        <div class="stat-item">
+        <div class="stat-item reveal reveal-delay-1">
           <span class="stat-number" data-target="10">0</span>
           <span class="stat-suffix">+</span>
           <p class="stat-label">Years of Ministry</p>
         </div>
         <div class="stat-divider"></div>
-        <div class="stat-item">
+        <div class="stat-item reveal reveal-delay-2">
           <span class="stat-number" data-target="2015">0</span>
           <span class="stat-suffix"></span>
           <p class="stat-label">Founded in Centurion</p>
         </div>
         <div class="stat-divider"></div>
-        <div class="stat-item">
+        <div class="stat-item reveal reveal-delay-3">
           <span class="stat-number" data-target="52">0</span>
           <span class="stat-suffix"></span>
           <p class="stat-label">Sundays a Year</p>
         </div>
         <div class="stat-divider"></div>
-        <div class="stat-item">
+        <div class="stat-item reveal reveal-delay-4">
           <span class="stat-number" data-target="1">0</span>
           <span class="stat-suffix"></span>
           <p class="stat-label">Home · Clubview</p>
@@ -143,77 +138,80 @@
     <!-- ================================================
          WHAT WE BELIEVE
          ================================================ -->
-    <section class="section section-mid fade-in">
+    <section class="section section-mid">
       <div class="container">
-        <div class="section-heading">
+
+        <!-- Section heading reveals as one block -->
+        <div class="section-heading reveal">
           <span class="script-accent">Our Foundation</span>
           <h2>What We <span class="text-gold">Believe</span></h2>
           <div class="divider-line"></div>
         </div>
+
+        <!-- Cards stagger in one by one -->
         <div class="grid-3" style="margin-top:48px">
-          <div class="value-card">
+          <div class="value-card reveal reveal-delay-1">
             <div class="icon"><i class="fas fa-bible"></i></div>
             <h3>Faith</h3>
             <p>Rooted in God's Word — every sermon, every service, every decision anchored in Scripture.</p>
           </div>
-          <div class="value-card">
+          <div class="value-card reveal reveal-delay-2">
             <div class="icon"><i class="fas fa-home"></i></div>
             <h3>Family</h3>
             <p>His House Church is your home. Pastors Musa & Nozuko lead a community where every person belongs.</p>
           </div>
-          <div class="value-card">
+          <div class="value-card reveal reveal-delay-3">
             <div class="icon"><i class="fas fa-users"></i></div>
             <h3>Community</h3>
             <p>From Children's Church to Sunday Celebration — we grow together, worship together, and carry each other.</p>
           </div>
-          <div class="value-card">
+          <div class="value-card reveal reveal-delay-4">
             <div class="icon"><i class="fas fa-crown"></i></div>
             <h3>Dominion</h3>
             <p>Genesis 1:28. #Dominion is not a hashtag — it is our mandate. We are here to make an impact.</p>
           </div>
         </div>
+
       </div>
     </section>
 
     <!-- ================================================
          10TH ANNIVERSARY BANNER
          ================================================ -->
-    <section class="anniversary-banner fade-in">
+    <section class="anniversary-banner">
       <div class="container text-center">
-        <span class="script-accent" style="font-size:2rem">Celebrating</span>
-        <h2 style="font-size:clamp(2rem,6vw,4rem)">
+        <span class="script-accent reveal" style="font-size:2rem">Celebrating</span>
+        <h2 class="reveal reveal-delay-1" style="font-size:clamp(2rem,6vw,4rem)">
           <span class="text-gold">10 Years</span> of God's Grace
         </h2>
-        <p style="font-size:1.1rem;margin:16px 0 32px;color:rgba(255,255,255,0.85)">
+        <p class="reveal reveal-delay-2" style="font-size:1.1rem;margin:16px 0 32px;color:rgba(255,255,255,0.85)">
           Since 2015, His House Church has been a place where faith grows and families thrive — right here in Centurion.
         </p>
-        <a href="events.html" class="btn btn-gold">Be Part of the Celebration</a>
+        <a href="events.html" class="btn btn-gold reveal reveal-delay-3">Be Part of the Celebration</a>
       </div>
     </section>
 
   </main>
 
-  <!-- ================================================
-       FOOTER
-       ================================================ -->
+  <!-- FOOTER -->
   <footer class="site-footer">
     <div class="footer-container">
       <div class="footer-grid">
-        <div class="footer-col">
+        <div class="footer-col reveal reveal-delay-1">
           <img src="images/logo.jpg" alt="His House Church" class="footer-logo">
           <p class="footer-tagline">
             Where Dominion Begins at Home<br>
             <em style="color:var(--gold)">Genesis 1:28 #Dominion</em>
           </p>
         </div>
-        <div class="footer-col">
+        <div class="footer-col reveal reveal-delay-2">
           <h4 class="footer-heading">Join Us</h4>
           <p>Sunday Celebration Service</p>
           <p style="color:var(--gold);font-weight:700">Every Sunday · 10:00 AM</p>
           <p>207 Utrecht Avenue<br>Clubview, Centurion 0014</p>
           <a href="tel:+27790292763" class="footer-phone">079-029-2763</a>
         </div>
-        <div class="footer-col">
+        <div class="footer-col reveal reveal-delay-3">
           <h4 class="footer-heading">Quick Links</h4>
           <ul class="footer-links">
             <li><a href="about.html">About Us</a></li>
@@ -223,7 +221,7 @@
             <li><a href="contact.html">Contact</a></li>
           </ul>
         </div>
-        <div class="footer-col">
+        <div class="footer-col reveal reveal-delay-4">
           <h4 class="footer-heading">Follow Us</h4>
           <div class="social-icons">
             <a href="https://facebook.com/hishousechurch" target="_blank" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>

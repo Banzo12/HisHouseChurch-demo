@@ -1,174 +1,447 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
+  <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="His House Church — A community of
-  faith, family and purpose in Centurion. Join us every Sunday at 10 AM.">
-  <title>His House Church | About</title>
- 
-  <!-- Google Fonts: Montserrat + Open Sans -->
+  <meta name="description" content="About His House Church — Founded in 2015 by Senior Pastors Musa and Nozuko Mabasa. A community of faith, family and purpose in Centurion, celebrating 10 years of God's grace.">
+  <title>His House Church | About Us</title>
+
+  <!-- Google Fonts: Montserrat + Open Sans + Dancing Script -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400
-  ;600;700;900&family=Open+Sans:wght@400;600&family=Dancing+Script:wght@700
-  &display=swap" rel="stylesheet">
- 
-  <!-- Font Awesome (free CDN — for social + nav icons) -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/
-  font-awesome/6.5.0/css/all.min.css">
- 
-  <link rel="stylesheet" href="css/style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;900&family=Open+Sans:wght@400;600&family=Dancing+Script:wght@700&display=swap" rel="stylesheet">
 
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+  <link rel="stylesheet" href="css/style.css">
 
 </head>
 
-  <!-- NAVIGATION (same on every page) -->
+<body>
+
+  <!-- =============================================
+       NAVIGATION
+       ============================================= -->
   <nav class="navbar" id="navbar">
-    <!-- See Section 03 for full navigation code -->
-     <!-- NAVIGATION (same on every page) -->
-  <nav class="navbar" id="navbar">
-    <!-- See Section 03 for full navigation code -->
-     <div class="nav-container">
-  <!-- Logo -->
-  <a href="index.html" class="nav-logo">
-    <img src="images/logo.png" alt="His House Church" height="48">
-    <span class="nav-logo-text">His House Church</span>
-  </a>
+    <div class="nav-container">
 
-  <!-- Desktop Menu -->
-  <ul class="nav-menu" id="navMenu">
-    <li><a href="index.html"   class="nav-link">Home</a></li>
-    <li><a href="about.html"   class="nav-link">About</a></li>
-    <li><a href="sermons.html" class="nav-link">Sermons</a></li>
-    <li><a href="events.html"  class="nav-link">Events</a></li>
-    <li><a href="contact.html" class="nav-link">Contact</a></li>
-  </ul>
+      <!-- Logo -->
+      <a href="index.html" class="nav-logo">
+        <div class="nav-logo-img-wrap">
+          <img src="images/logo.jpg" alt="His House Church">
+        </div>
+        <div class="nav-logo-text-wrap">
+          <span class="nav-logo-text">His House Church</span>
+          <span class="nav-logo-sub">Clubview · Centurion</span>
+        </div>
+      </a>
 
-  
-  <!-- CTA Button -->
-  <a href="contact.html" class="btn btn-gold nav-cta">Plan Your Visit</a>
- 
-  <!-- Mobile Hamburger -->
-  <button class="hamburger" id="hamburger" aria-label="Open menu">
-    <span></span><span></span><span></span>
-  </button>
-</div>
+      <!-- Desktop Menu -->
+      <ul class="nav-menu" id="navMenu">
+        <li><a href="index.html"   class="nav-link">Home</a></li>
+        <li><a href="about.html"   class="nav-link active">About</a></li>
+        <li><a href="sermons.html" class="nav-link">Sermons</a></li>
+        <li><a href="events.html"  class="nav-link">Events</a></li>
+        <li><a href="contact.html" class="nav-link">Contact</a></li>
+      </ul>
 
-  </nav>
-  </nav>
- 
-  <!-- MAIN PAGE CONTENT GOES HERE -->
-  <main>
-    <!-- page-specific sections here -->
-     <!-- MEET THE PASTORS -->
-<section class="section fade-in">
-  <div class="container">
-    <div class="section-heading">
-      <span class="script-accent">Led by</span>
-      <h2>Meet the <span class="text-gold">Pastors</span></h2>
-      <div class="divider-line"></div>
+      <!-- CTA Button -->
+      <a href="contact.html" class="btn btn-gold nav-cta">Plan Your Visit</a>
+
+      <!-- Mobile Hamburger -->
+      <button class="hamburger" id="hamburger" aria-label="Open menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+
     </div>
-    <div class="grid-2" style="margin-top:48px">
- 
-      <div class="pastor-card">
-        <img src="images/pastors.jpg"
-             alt="Senior Pastors Musa and Nozuko Mabasa">
-        <div class="card-body">
-          <p class="card-meta">Senior Pastors</p>
-          <h3 class="card-title">
-            Pastor Musa & Pastor Nozuko Mabasa
-          </h3>
-          <p class="card-text">
-            Since founding His House Church in 2015, Pastors Musa and
-            Nozuko have led with vision, grace, and a deep commitment
-            to families in Centurion. Their ministry is grounded in the
-            Dominion mandate of Genesis 1:28 — equipping every believer
-            to fulfil God's purpose in their home, their community,
-            and the earth.
+  </nav>
+
+
+  <main>
+
+    <!-- =============================================
+         PAGE HERO
+         ============================================= -->
+    <section class="page-hero">
+      <div class="page-hero-bg"></div>
+      <div class="page-hero-overlay"></div>
+      <div class="page-hero-content reveal">
+        <div class="page-hero-breadcrumb">
+          <a href="index.html">Home</a>
+          <i class="fas fa-chevron-right"></i>
+          <span>About Us</span>
+        </div>
+        <span class="script-accent">Our Story</span>
+        <h1>About <span class="text-gold">His House</span> Church</h1>
+        <p>A community of faith, family, and purpose — rooted in Centurion since 2015, and celebrating 10 years of God's faithfulness.</p>
+      </div>
+    </section>
+
+
+    <!-- =============================================
+         OUR STORY — SPLIT LAYOUT
+         ============================================= -->
+    <section class="section">
+      <div class="container">
+        <div class="story-grid">
+
+          <!-- Text Side -->
+          <div class="story-text reveal">
+            <span class="script-accent">How we began</span>
+            <h2>Built on a <span class="text-gold">Simple Conviction</span></h2>
+            <p>His House Church was born from a simple conviction: that the church should feel like home. In 2015, Senior Pastors Musa and Nozuko Mabasa answered a call to plant a church in the heart of Centurion — a house where God dwells and families thrive.</p>
+            <p>What began as a gathering of faith-filled families has grown into a vibrant, multigenerational community. Every Sunday at 207 Utrecht Avenue, people from Clubview, Centurion, and beyond gather to worship, grow, and discover what it means to walk in God's purposes.</p>
+            <p>In 2026, we celebrate <strong style="color:var(--gold)">10 years of God's faithfulness</strong> — a decade of changed lives, strengthened families, and a community that continues to grow in grace.</p>
+
+            <!-- Scripture Block -->
+            <div class="scripture-block">
+              <blockquote>"God blessed them and said to them, Be fruitful and increase in number; fill the earth and subdue it."</blockquote>
+              <cite>Genesis 1:28 · The Dominion Mandate</cite>
+            </div>
+          </div>
+
+          <!-- Image Side -->
+          <div class="story-image-wrap reveal reveal-delay-2">
+            <div class="story-image-frame"></div>
+            <img src="images/Mr and Mrs Mabasa 1.png" alt="Pastors Musa and Nozuko Mabasa leading His House Church">
+            <div class="story-image-badge">
+              <span class="badge-num">10</span>
+              <span class="badge-label">Years of<br>Grace</span>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+
+    <!-- =============================================
+         MISSION & VISION
+         ============================================= -->
+    <section class="section section-mid">
+      <div class="container">
+        <div class="section-heading reveal">
+          <span class="script-accent">Why we exist</span>
+          <h2>Mission <span class="text-gold">&amp;</span> Vision</h2>
+          <div class="divider-line"></div>
+        </div>
+
+        <div class="mv-grid">
+
+          <div class="mv-card reveal reveal-delay-1">
+            <div class="mv-card-icon">
+              <i class="fas fa-crosshairs"></i>
+            </div>
+            <h3>Our <span class="text-gold">Mission</span></h3>
+            <p>To build a house where God dwells and families thrive — equipping every believer to walk in the Dominion mandate of Genesis 1:28. We exist to see families restored, communities transformed, and God glorified in every sphere of life.</p>
+          </div>
+
+          <div class="mv-card reveal reveal-delay-2">
+            <div class="mv-card-icon">
+              <i class="fas fa-eye"></i>
+            </div>
+            <h3>Our <span class="text-gold">Vision</span></h3>
+            <p>A church where every person — from children to elders — discovers their God-given identity and purpose. We envision a growing community of Kingdom-minded families who bring God's grace and dominion into Centurion, Gauteng, and beyond.</p>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+
+    <!-- =============================================
+         WHAT WE BELIEVE
+         ============================================= -->
+    <section class="section">
+      <div class="container">
+        <div class="section-heading reveal">
+          <span class="script-accent">Our foundation</span>
+          <h2>What We <span class="text-gold">Believe</span></h2>
+          <div class="divider-line"></div>
+        </div>
+
+        <div class="beliefs-grid">
+
+          <div class="belief-card reveal reveal-delay-1">
+            <div class="belief-icon"><i class="fas fa-bible"></i></div>
+            <h3>The Word of God</h3>
+            <p>We believe the Bible is the inspired, authoritative Word of God — our ultimate guide for faith, family, and life.</p>
+          </div>
+
+          <div class="belief-card reveal reveal-delay-2">
+            <div class="belief-icon"><i class="fas fa-cross"></i></div>
+            <h3>Salvation Through Christ</h3>
+            <p>We believe in Jesus Christ — His life, death, and resurrection — as the only path to salvation and restored relationship with God.</p>
+          </div>
+
+          <div class="belief-card reveal reveal-delay-3">
+            <div class="belief-icon"><i class="fas fa-fire"></i></div>
+            <h3>The Holy Spirit</h3>
+            <p>We believe in the ongoing work and gifts of the Holy Spirit, empowering believers for life, ministry, and purpose.</p>
+          </div>
+
+          <div class="belief-card reveal reveal-delay-4">
+            <div class="belief-icon"><i class="fas fa-home"></i></div>
+            <h3>Family &amp; Community</h3>
+            <p>We believe the family is God's foundational institution — and that a healthy church is a family of families, rooted in love and accountability.</p>
+          </div>
+
+          <div class="belief-card reveal reveal-delay-1">
+            <div class="belief-icon"><i class="fas fa-crown"></i></div>
+            <h3>Dominion</h3>
+            <p>We believe every believer is called to exercise godly dominion — bringing God's Kingdom values into every sphere of society.</p>
+          </div>
+
+          <div class="belief-card reveal reveal-delay-2">
+            <div class="belief-icon"><i class="fas fa-hands-praying"></i></div>
+            <h3>Prayer &amp; Worship</h3>
+            <p>We believe prayer and Spirit-filled worship are the heartbeat of the church — connecting us to God and releasing His purposes in the earth.</p>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+
+    <!-- =============================================
+         MEET THE PASTORS
+         ============================================= -->
+    <section class="section section-mid">
+      <div class="container">
+        <div class="pastors-feature">
+
+          <!-- Image Side -->
+          <div class="pastor-image-wrap reveal">
+            <img src="images/Gemini_Generated_Image_h58opkh58opkh58o.png" alt="Senior Pastors Musa and Nozuko Mabasa of His House Church">
+            <div class="pastor-names-overlay">
+              <p class="card-meta">Senior Pastors · His House Church</p>
+              <h3>Pastor Musa &amp; Pastor Nozuko Mabasa</h3>
+              <div class="pastor-gold-line"></div>
+            </div>
+          </div>
+
+          <!-- Text Side -->
+          <div class="pastor-text reveal reveal-delay-2">
+            <span class="script-accent">Led by</span>
+            <h2>Meet the <span class="text-gold">Pastors</span></h2>
+            <p>Senior Pastors Musa and Nozuko Mabasa have served together as a ministry couple since founding His House Church in 2015. Their partnership in leadership is a reflection of the very values they teach — family, faith, and walking together in God's purpose.</p>
+            <p>Pastor Musa brings a bold, Kingdom-focused teaching style anchored in the Dominion mandate. His messages consistently equip believers to take their God-given authority into their homes, workplaces, and communities.</p>
+            <p>Pastor Nozuko ministers with a deep pastoral heart, nurturing the family culture and spiritual health of the congregation. Together, they have built a church that is both Spirit-led and family-centred — where every person is known, valued, and challenged to grow.</p>
+
+            <div class="pastor-stat-row">
+              <div class="pastor-stat">
+                <span class="ps-num">2015</span>
+                <span class="ps-label">Year Founded</span>
+              </div>
+              <div class="pastor-stat-divider"></div>
+              <div class="pastor-stat">
+                <span class="ps-num">10</span>
+                <span class="ps-label">Years of Ministry</span>
+              </div>
+              <div class="pastor-stat-divider"></div>
+              <div class="pastor-stat">
+                <span class="ps-num">4</span>
+                <span class="ps-label">Social Platforms</span>
+              </div>
+            </div>
+
+            <div style="margin-top:32px; display:flex; gap:16px; flex-wrap:wrap;">
+              <a href="sermons.html" class="btn btn-gold">Watch a Sermon</a>
+              <a href="contact.html" class="btn btn-outline">Plan Your Visit</a>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+
+    <!-- =============================================
+         MILESTONE TIMELINE
+         ============================================= -->
+    <section class="timeline-section">
+      <div class="container">
+        <div class="section-heading reveal">
+          <span class="script-accent">A decade of faithfulness</span>
+          <h2>Our <span class="text-gold">Journey</span></h2>
+          <div class="divider-line"></div>
+          <p style="max-width:540px; margin:16px auto 0; font-size:0.95rem; color:rgba(255,255,255,0.6);">Ten years of God's grace — marked by milestones, growth, and a community that keeps saying yes to His call.</p>
+        </div>
+
+        <div class="timeline-list">
+
+          <div class="timeline-item reveal">
+            <div class="timeline-content">
+              <p class="timeline-year">2015</p>
+              <h4>His House Church is Born</h4>
+              <p>Senior Pastors Musa and Nozuko Mabasa plant His House Church in Centurion, anchored in the vision of building a house where God dwells and families thrive.</p>
+            </div>
+            <div class="timeline-spacer"><div class="timeline-dot">2015</div></div>
+            <div class="timeline-empty"></div>
+          </div>
+
+          <div class="timeline-item reveal">
+            <div class="timeline-empty"></div>
+            <div class="timeline-spacer"><div class="timeline-dot">Growth</div></div>
+            <div class="timeline-content">
+              <p class="timeline-year">Early Years</p>
+              <h4>Community &amp; Roots</h4>
+              <p>The congregation grows as families join the vision. Children's Church is established, making HHC a true multigenerational family of faith rooted in Clubview.</p>
+            </div>
+          </div>
+
+          <div class="timeline-item reveal">
+            <div class="timeline-content">
+              <p class="timeline-year">Building</p>
+              <h4>The Dominion Series</h4>
+              <p>The Genesis 1:28 #Dominion teaching series becomes the theological heartbeat of His House Church — equipping believers to exercise their God-given mandate in every area of life.</p>
+            </div>
+            <div class="timeline-spacer"><div class="timeline-dot">Series</div></div>
+            <div class="timeline-empty"></div>
+          </div>
+
+          <div class="timeline-item reveal">
+            <div class="timeline-empty"></div>
+            <div class="timeline-spacer"><div class="timeline-dot">Digital</div></div>
+            <div class="timeline-content">
+              <p class="timeline-year">Digital Presence</p>
+              <h4>Reaching Beyond Centurion</h4>
+              <p>His House Church launches across four social platforms — Facebook, Instagram, YouTube, and Twitter/X — extending their reach and bringing weekly sermons to members near and far.</p>
+            </div>
+          </div>
+
+          <div class="timeline-item reveal">
+            <div class="timeline-content">
+              <p class="timeline-year">2026</p>
+              <h4>10 Years of God's Grace</h4>
+              <p>His House Church celebrates its 10th anniversary — a decade of faithful ministry, transformed families, and a community still growing in Dominion and purpose. The best is still ahead.</p>
+            </div>
+            <div class="timeline-spacer">
+              <div class="timeline-dot" style="background: linear-gradient(135deg, var(--gold), var(--gold-light)); box-shadow: 0 0 0 4px rgba(212,160,23,0.3), 0 0 20px rgba(212,160,23,0.3);">2026</div>
+            </div>
+            <div class="timeline-empty"></div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+
+    <!-- =============================================
+         10TH ANNIVERSARY BANNER
+         ============================================= -->
+    <section class="about-anniversary">
+      <div class="about-anniversary-inner reveal">
+        <div class="anniversary-badge-large">
+          <span class="ab-num">10</span>
+          <span class="ab-label">Years</span>
+        </div>
+        <span class="script-accent" style="font-size:1.8rem; display:block; margin-bottom:12px;">Celebrating</span>
+        <h2>10 Years of <span class="text-gold">God's Grace</span></h2>
+        <p>In 2026, His House Church marks a decade of ministry, community, and faithfulness. This is not just our history — it is a foundation for the next 10 years of Dominion.</p>
+        <div style="display:flex; gap:16px; justify-content:center; flex-wrap:wrap;">
+          <a href="events.html" class="btn btn-gold">See Anniversary Events</a>
+          <a href="contact.html" class="btn btn-outline">Join Us This Sunday</a>
+        </div>
+      </div>
+    </section>
+
+
+    <!-- =============================================
+         BRING A SOUL CTA
+         ============================================= -->
+    <section class="section text-center">
+      <div class="container">
+        <div class="reveal" style="max-width:640px; margin:0 auto;">
+          <span class="script-accent" style="font-size:1.5rem;">You are welcome here</span>
+          <h2>Find Your <span class="text-gold">Family</span> in Centurion</h2>
+          <p style="margin: 16px 0 32px; font-size:1.05rem; color:rgba(255,255,255,0.72);">Every Sunday at 10:00 AM, His House Church gathers at 207 Utrecht Avenue, Clubview, Centurion. Come as you are — and bring a soul who needs a family.</p>
+          <div class="btn-gap">
+            <a href="contact.html" class="btn btn-gold">Plan Your Visit</a>
+            <a href="sermons.html" class="btn btn-outline">Watch Our Sermons</a>
+          </div>
+          <p style="margin-top:24px; font-size:0.85rem; color:rgba(255,255,255,0.4);">
+            <i class="fas fa-child" style="color:var(--gold); margin-right:6px;"></i>
+            Children's Church available every Sunday
           </p>
         </div>
       </div>
- 
-    </div>
-  </div>
-</section>
+    </section>
 
   </main>
- 
-  <!-- FOOTER (same on every page) -->
+
+
+  <!-- =============================================
+       FOOTER
+       ============================================= -->
   <footer class="site-footer">
-    <!-- See Section 04 for full footer code -->
-    
-     <div class="footer-container">
-  <div class="footer-grid">
- 
-    <!-- Column 1: Brand -->
-    <div class="footer-col">
-      <img src="images/logo.png" alt="His House Church" height="56"
-           class="footer-logo">
-      <p class="footer-tagline">
-        Where Dominion Begins at Home<br>
-        <em style="color:var(--gold)">Genesis 1:28 #Dominion</em>
-      </p>
-    </div>
- 
-    <!-- Column 2: Service Info -->
-    <div class="footer-col">
-      <h4 class="footer-heading">Join Us</h4>
-      <p>Sunday Celebration Service</p>
-      <p style="color:var(--gold);font-weight:700">Every Sunday · 10:00 AM</p>
-      <p>207 Utrecht Avenue<br>Clubview, Centurion 0014</p>
-      <a href="tel:+27790292763" class="footer-phone">079-029-2763</a>
-    </div>
- 
-    <!-- Column 3: Quick Links -->
-    <div class="footer-col">
-      <h4 class="footer-heading">Quick Links</h4>
-      <ul class="footer-links">
-        <li><a href="about.html">About Us</a></li>
-        <li><a href="sermons.html">Sermons</a></li>
-        <li><a href="events.html">Events</a></li>
-        <li><a href="giving.html">Online Giving</a></li>
-        <li><a href="contact.html">Contact</a></li>
-      </ul>
-    </div>
-    <!-- Column 4: Social Media -->
-    <div class="footer-col">
-      <h4 class="footer-heading">Follow Us</h4>
-      <div class="social-icons">
-        <a href="https://facebook.com/hishousechurch"
-           target="_blank" aria-label="Facebook">
-          <i class="fab fa-facebook-f"></i>
-        </a>
-        <a href="https://instagram.com/hishousechurch"
-           target="_blank" aria-label="Instagram">
-          <i class="fab fa-instagram"></i>
-        </a>
-        <a href="https://youtube.com/@hishousechurch7593"
-           target="_blank" aria-label="YouTube">
-          <i class="fab fa-youtube"></i>
-        </a>
-        <a href="https://twitter.com/hishousechurch"
-           target="_blank" aria-label="Twitter/X">
-          <i class="fab fa-x-twitter"></i>
-        </a>
+    <div class="footer-container">
+      <div class="footer-grid">
+
+        <!-- Column 1: Brand -->
+        <div class="footer-col">
+          <img src="images/logo.jpg" alt="His House Church" height="56" class="footer-logo">
+          <p class="footer-tagline">
+            Where Dominion Begins at Home<br>
+            <em style="color:var(--gold)">Genesis 1:28 #Dominion</em>
+          </p>
+        </div>
+
+        <!-- Column 2: Service Info -->
+        <div class="footer-col">
+          <h4 class="footer-heading">Join Us</h4>
+          <p>Sunday Celebration Service</p>
+          <p style="color:var(--gold); font-weight:700">Every Sunday · 10:00 AM</p>
+          <p>207 Utrecht Avenue<br>Clubview, Centurion 0014</p>
+          <a href="tel:+27790292763" class="footer-phone">079-029-2763</a>
+        </div>
+
+        <!-- Column 3: Quick Links -->
+        <div class="footer-col">
+          <h4 class="footer-heading">Quick Links</h4>
+          <ul class="footer-links">
+            <li><a href="about.html">About Us</a></li>
+            <li><a href="sermons.html">Sermons</a></li>
+            <li><a href="events.html">Events</a></li>
+            <li><a href="giving.html">Online Giving</a></li>
+            <li><a href="contact.html">Contact</a></li>
+          </ul>
+        </div>
+
+        <!-- Column 4: Social Media -->
+        <div class="footer-col">
+          <h4 class="footer-heading">Follow Us</h4>
+          <div class="social-icons">
+            <a href="https://facebook.com/hishousechurch" target="_blank" aria-label="Facebook">
+              <i class="fab fa-facebook-f"></i>
+            </a>
+            <a href="https://instagram.com/hishousechurch" target="_blank" aria-label="Instagram">
+              <i class="fab fa-instagram"></i>
+            </a>
+            <a href="https://youtube.com/@hishousechurch7593" target="_blank" aria-label="YouTube">
+              <i class="fab fa-youtube"></i>
+            </a>
+            <a href="https://twitter.com/hishousechurch" target="_blank" aria-label="Twitter/X">
+              <i class="fab fa-x-twitter"></i>
+            </a>
+          </div>
+          <p class="footer-children">
+            <i class="fas fa-child" style="color:var(--gold)"></i>
+            Children's Church available every Sunday
+          </p>
+        </div>
+
       </div>
-      <p class="footer-children">
-        <i class="fas fa-child" style="color:var(--gold)"></i>
-        Children's Church available every Sunday
-      </p>
+
+      <div class="footer-bottom">
+        <p>© 2026 His House Church · Celebrating 10 Years of God's Grace</p>
+        <p>Senior Pastors: Musa &amp; Nozuko Mabasa · 207 Utrecht Avenue, Clubview, Centurion</p>
+      </div>
     </div>
-  </div>
- 
-  <div class="footer-bottom">
-    <p>© 2025 His House Church · Celebrating 10 Years of God's Grace</p>
-    <p>Senior Pastors: Musa & Nozuko Mabasa</p>
-  </div>
-</div>
   </footer>
- 
+
   <script src="js/main.js"></script>
+
 </body>
 </html>
-

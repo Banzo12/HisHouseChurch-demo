@@ -1,0 +1,939 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Sermons from His House Church — Watch and listen to messages from Senior Pastors Musa and Nozuko Mabasa. The Dominion Series and more, every Sunday in Centurion.">
+  <title>His House Church | Sermons</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;900&family=Open+Sans:wght@400;600&family=Dancing+Script:wght@700&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <link rel="stylesheet" href="css/style.css">
+
+  <style>
+    /* ====================================================
+       SERMONS PAGE — PAGE-SPECIFIC STYLES
+       ==================================================== */
+
+    /* ---- PAGE HERO ---- */
+    .page-hero {
+      position: relative;
+      min-height: 52vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding-top: 72px;
+      background: var(--navy);
+      overflow: hidden;
+    }
+    .page-hero-bg {
+      position: absolute;
+      inset: 0;
+      background-image: url('images/worship-community.jpg');
+      background-size: cover;
+      background-position: center 40%;
+      opacity: 0.18;
+      z-index: 1;
+    }
+    .page-hero-overlay {
+      position: absolute; inset: 0; z-index: 2;
+      background: linear-gradient(to bottom, rgba(10,22,40,0.55) 0%, rgba(10,22,40,0.95) 100%);
+    }
+    .page-hero-content {
+      position: relative; z-index: 3;
+      padding: 64px 20px;
+      max-width: 760px; margin: 0 auto;
+    }
+    .page-hero-breadcrumb {
+      display: flex; align-items: center; justify-content: center;
+      gap: 8px;
+      font-family: var(--font-heading); font-size: 0.72rem; font-weight: 700;
+      text-transform: uppercase; letter-spacing: 0.14em;
+      color: rgba(255,255,255,0.4); margin-bottom: 20px;
+    }
+    .page-hero-breadcrumb a { color: var(--gold); transition: opacity 0.2s; }
+    .page-hero-breadcrumb a:hover { opacity: 0.75; }
+    .page-hero-breadcrumb i { font-size: 0.55rem; }
+    .page-hero-content .script-accent { font-size: 1.6rem; margin-bottom: 10px; }
+    .page-hero-content h1 { font-size: clamp(2.4rem, 6vw, 4.2rem); margin-bottom: 16px; }
+    .page-hero-content p {
+      font-size: 1.1rem; color: rgba(255,255,255,0.72);
+      max-width: 560px; margin: 0 auto; line-height: 1.9;
+    }
+
+    /* ---- ACTIVE NAV ---- */
+    .nav-link.active { color: var(--gold); }
+    .nav-link.active::after { width: calc(100% - 24px); }
+
+    /* ---- FEATURED SERMON ---- */
+    .featured-sermon {
+      background: var(--navy-mid);
+      padding: var(--section-pad);
+      border-bottom: 1px solid rgba(212,160,23,0.12);
+    }
+    .featured-inner {
+      display: grid;
+      grid-template-columns: 1.4fr 1fr;
+      gap: 56px;
+      align-items: center;
+    }
+    .featured-video-wrap {
+      position: relative;
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      background: #000;
+      aspect-ratio: 16/9;
+      box-shadow: 0 24px 64px rgba(0,0,0,0.6);
+    }
+    .featured-video-wrap img {
+      width: 100%; height: 100%;
+      object-fit: cover;
+      display: block;
+      transition: transform 0.4s ease, opacity 0.4s ease;
+    }
+    .featured-video-wrap:hover img { transform: scale(1.03); opacity: 0.85; }
+    .featured-play-btn {
+      position: absolute;
+      top: 50%; left: 50%;
+      transform: translate(-50%, -50%);
+      width: 72px; height: 72px;
+      background: var(--gold);
+      border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 1.6rem; color: var(--navy);
+      box-shadow: 0 8px 32px rgba(212,160,23,0.5);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      text-decoration: none;
+      padding-left: 4px; /* optical centre for play icon */
+    }
+    .featured-play-btn:hover {
+      transform: translate(-50%, -50%) scale(1.1);
+      box-shadow: 0 12px 40px rgba(212,160,23,0.65);
+    }
+    .featured-badge {
+      position: absolute; top: 16px; left: 16px;
+      background: var(--gold); color: var(--navy);
+      font-family: var(--font-heading); font-size: 0.65rem; font-weight: 900;
+      text-transform: uppercase; letter-spacing: 0.1em;
+      padding: 5px 12px; border-radius: 4px;
+    }
+    .featured-text .script-accent { display: block; margin-bottom: 8px; }
+    .featured-text h2 { margin-bottom: 8px; }
+    .featured-series-tag {
+      display: inline-flex; align-items: center; gap: 6px;
+      background: rgba(212,160,23,0.1); border: 1px solid rgba(212,160,23,0.3);
+      border-radius: 4px; padding: 5px 12px;
+      font-family: var(--font-heading); font-size: 0.7rem; font-weight: 700;
+      text-transform: uppercase; letter-spacing: 0.1em;
+      color: var(--gold); margin-bottom: 20px;
+    }
+    .featured-series-tag i { font-size: 0.65rem; }
+    .featured-text p {
+      font-size: 1rem; line-height: 1.85;
+      color: rgba(255,255,255,0.75);
+      margin-bottom: 20px;
+    }
+    .featured-meta {
+      display: flex; gap: 20px; flex-wrap: wrap;
+      margin-bottom: 28px;
+    }
+    .featured-meta-item {
+      display: flex; align-items: center; gap: 7px;
+      font-family: var(--font-heading); font-size: 0.75rem; font-weight: 700;
+      text-transform: uppercase; letter-spacing: 0.08em;
+      color: rgba(255,255,255,0.5);
+    }
+    .featured-meta-item i { color: var(--gold); font-size: 0.8rem; }
+
+    @media (max-width: 860px) {
+      .featured-inner { grid-template-columns: 1fr; gap: 36px; }
+    }
+
+    /* ---- DOMINION SERIES BANNER ---- */
+    .dominion-banner {
+      background: linear-gradient(135deg, #0A1628 0%, #1B2A4A 60%, #0A1628 100%);
+      border-top: 3px solid var(--gold);
+      border-bottom: 3px solid var(--gold);
+      padding: 56px 20px;
+      position: relative;
+      overflow: hidden;
+    }
+    .dominion-banner::before {
+      content: '#DOMINION';
+      position: absolute;
+      font-family: var(--font-heading);
+      font-size: 12vw; font-weight: 900;
+      color: rgba(212,160,23,0.04);
+      top: 50%; left: 50%;
+      transform: translate(-50%, -50%);
+      white-space: nowrap;
+      pointer-events: none; line-height: 1;
+      letter-spacing: -0.02em;
+    }
+    .dominion-inner {
+      position: relative; z-index: 2;
+      max-width: var(--max-width);
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 48px;
+      align-items: center;
+    }
+    .dominion-text .script-accent { display: block; margin-bottom: 8px; }
+    .dominion-text h2 { margin-bottom: 12px; }
+    .dominion-text p {
+      color: rgba(255,255,255,0.72); max-width: 560px;
+      line-height: 1.85; margin-bottom: 0;
+    }
+    .dominion-scripture {
+      background: rgba(212,160,23,0.08);
+      border: 1px solid rgba(212,160,23,0.25);
+      border-radius: var(--radius-lg);
+      padding: 28px 32px;
+      text-align: center;
+      min-width: 220px;
+      flex-shrink: 0;
+    }
+    .dominion-scripture .ref {
+      font-family: var(--font-heading); font-size: 1.5rem; font-weight: 900;
+      color: var(--gold); display: block; margin-bottom: 6px;
+    }
+    .dominion-scripture p {
+      font-size: 0.82rem; color: rgba(255,255,255,0.6);
+      font-style: italic; line-height: 1.5;
+    }
+    .dominion-scripture .hashtag {
+      display: block; margin-top: 10px;
+      font-family: var(--font-heading); font-size: 0.72rem; font-weight: 900;
+      color: var(--gold); letter-spacing: 0.08em; text-transform: uppercase;
+    }
+
+    @media (max-width: 760px) {
+      .dominion-inner { grid-template-columns: 1fr; gap: 28px; }
+      .dominion-scripture { text-align: left; min-width: unset; }
+    }
+
+    /* ---- FILTER + SERMON GRID ---- */
+    .sermons-section { padding: var(--section-pad); }
+    .filter-bar {
+      display: flex; gap: 10px; flex-wrap: wrap;
+      margin-bottom: 40px; align-items: center;
+    }
+    .filter-btn {
+      font-family: var(--font-heading); font-size: 0.75rem; font-weight: 700;
+      text-transform: uppercase; letter-spacing: 0.08em;
+      padding: 9px 20px; border-radius: 6px;
+      border: 1px solid rgba(212,160,23,0.3);
+      background: transparent; color: rgba(255,255,255,0.65);
+      cursor: pointer; transition: all 0.2s;
+    }
+    .filter-btn:hover { border-color: var(--gold); color: var(--gold); }
+    .filter-btn.active {
+      background: var(--gold); color: var(--navy);
+      border-color: var(--gold);
+    }
+    .filter-search {
+      margin-left: auto;
+      display: flex; align-items: center; gap: 0;
+      background: var(--navy-light);
+      border: 1px solid rgba(212,160,23,0.2);
+      border-radius: 6px; overflow: hidden;
+    }
+    .filter-search input {
+      background: transparent; border: none; outline: none;
+      color: var(--white); font-family: var(--font-body); font-size: 0.9rem;
+      padding: 9px 16px; width: 220px;
+    }
+    .filter-search input::placeholder { color: rgba(255,255,255,0.35); }
+    .filter-search button {
+      background: transparent; border: none; cursor: pointer;
+      padding: 9px 16px; color: rgba(255,255,255,0.4);
+      transition: color 0.2s;
+    }
+    .filter-search button:hover { color: var(--gold); }
+
+    @media (max-width: 640px) {
+      .filter-search { margin-left: 0; width: 100%; }
+      .filter-search input { width: 100%; flex: 1; }
+    }
+
+    /* ---- SERMON CARDS ---- */
+    .sermon-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+      gap: 28px;
+    }
+    .sermon-card {
+      background: var(--navy-light);
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      border: 1px solid rgba(212,160,23,0.12);
+      transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+      display: flex; flex-direction: column;
+    }
+    .sermon-card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 20px 48px rgba(0,0,0,0.45);
+      border-color: rgba(212,160,23,0.35);
+    }
+    .sermon-thumb {
+      position: relative; aspect-ratio: 16/9; overflow: hidden;
+      background: var(--navy-mid);
+    }
+    .sermon-thumb img {
+      width: 100%; height: 100%; object-fit: cover;
+      transition: transform 0.4s ease;
+    }
+    .sermon-card:hover .sermon-thumb img { transform: scale(1.05); }
+    .sermon-thumb-overlay {
+      position: absolute; inset: 0;
+      background: rgba(10,22,40,0.3);
+      display: flex; align-items: center; justify-content: center;
+      opacity: 0; transition: opacity 0.3s ease;
+    }
+    .sermon-card:hover .sermon-thumb-overlay { opacity: 1; }
+    .thumb-play {
+      width: 52px; height: 52px;
+      background: var(--gold); border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 1.2rem; color: var(--navy);
+      padding-left: 3px;
+      box-shadow: 0 8px 24px rgba(212,160,23,0.5);
+    }
+    .sermon-series-pill {
+      position: absolute; top: 12px; left: 12px;
+      background: rgba(10,22,40,0.88);
+      border: 1px solid rgba(212,160,23,0.35);
+      border-radius: 4px; padding: 3px 10px;
+      font-family: var(--font-heading); font-size: 0.62rem; font-weight: 700;
+      text-transform: uppercase; letter-spacing: 0.08em; color: var(--gold);
+    }
+    .sermon-body {
+      padding: 20px 22px 24px;
+      display: flex; flex-direction: column; flex: 1;
+    }
+    .sermon-body .card-meta { margin-bottom: 6px; font-size: 0.72rem; }
+    .sermon-title {
+      font-family: var(--font-heading); font-size: 1rem; font-weight: 900;
+      text-transform: uppercase; letter-spacing: 0.03em;
+      color: var(--white); margin-bottom: 10px; line-height: 1.3;
+    }
+    .sermon-excerpt {
+      font-size: 0.87rem; color: rgba(255,255,255,0.6);
+      line-height: 1.7; margin-bottom: 16px; flex: 1;
+    }
+    .sermon-footer {
+      display: flex; align-items: center; justify-content: space-between;
+      border-top: 1px solid rgba(255,255,255,0.06);
+      padding-top: 14px; margin-top: auto;
+    }
+    .sermon-date {
+      font-family: var(--font-heading); font-size: 0.68rem; font-weight: 700;
+      text-transform: uppercase; letter-spacing: 0.1em;
+      color: rgba(255,255,255,0.35);
+    }
+    .sermon-watch-link {
+      display: inline-flex; align-items: center; gap: 6px;
+      font-family: var(--font-heading); font-size: 0.72rem; font-weight: 700;
+      text-transform: uppercase; letter-spacing: 0.08em;
+      color: var(--gold); transition: gap 0.2s;
+    }
+    .sermon-watch-link:hover { gap: 10px; }
+    .sermon-watch-link i { font-size: 0.65rem; }
+
+    /* ---- DOMINION SERIES FEATURED ROW ---- */
+    .series-feature-row {
+      background: var(--navy-mid);
+      border-radius: var(--radius-lg);
+      border: 1px solid rgba(212,160,23,0.2);
+      padding: 32px 36px;
+      display: grid;
+      grid-template-columns: auto 1fr;
+      gap: 32px;
+      align-items: center;
+      margin-bottom: 40px;
+      position: relative;
+      overflow: hidden;
+    }
+    .series-feature-row::before {
+      content: '';
+      position: absolute; top: 0; left: 0; bottom: 0;
+      width: 4px; background: var(--gold); border-radius: 4px 0 0 4px;
+    }
+    .series-icon-large {
+      width: 80px; height: 80px;
+      background: rgba(212,160,23,0.1);
+      border: 2px solid rgba(212,160,23,0.3);
+      border-radius: 16px;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 2rem; color: var(--gold); flex-shrink: 0;
+    }
+    .series-feature-text .series-label {
+      font-family: var(--font-heading); font-size: 0.68rem; font-weight: 700;
+      text-transform: uppercase; letter-spacing: 0.14em;
+      color: var(--gold); margin-bottom: 4px;
+    }
+    .series-feature-text h3 { margin-bottom: 8px; font-size: clamp(1.1rem, 2vw, 1.4rem); }
+    .series-feature-text p {
+      font-size: 0.9rem; color: rgba(255,255,255,0.65);
+      line-height: 1.75; max-width: 620px;
+    }
+    .series-feature-cta {
+      margin-left: auto; flex-shrink: 0;
+    }
+
+    @media (max-width: 640px) {
+      .series-feature-row { grid-template-columns: 1fr; }
+      .series-icon-large { width: 56px; height: 56px; font-size: 1.4rem; }
+      .series-feature-cta { margin-left: 0; }
+    }
+
+    /* ---- YOUTUBE SUBSCRIBE BANNER ---- */
+    .yt-banner {
+      background: linear-gradient(135deg, #0A1628, #1B2A4A);
+      border: 1px solid rgba(212,160,23,0.2);
+      border-radius: var(--radius-lg);
+      padding: 40px 48px;
+      display: flex; align-items: center; gap: 32px;
+      flex-wrap: wrap;
+      margin-top: 56px;
+    }
+    .yt-icon {
+      width: 64px; height: 64px;
+      background: #FF0000;
+      border-radius: 14px;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 1.8rem; color: #fff; flex-shrink: 0;
+    }
+    .yt-text { flex: 1; min-width: 200px; }
+    .yt-text h3 { font-size: 1.1rem; margin-bottom: 6px; }
+    .yt-text p { font-size: 0.9rem; color: rgba(255,255,255,0.65); }
+    .yt-text p a { color: var(--gold); }
+    .yt-btn {
+      background: #FF0000; color: #fff;
+      padding: 12px 28px; border-radius: var(--radius);
+      font-family: var(--font-heading); font-size: 0.82rem; font-weight: 700;
+      text-transform: uppercase; letter-spacing: 0.06em;
+      display: inline-flex; align-items: center; gap: 8px;
+      transition: opacity 0.2s, transform 0.2s; flex-shrink: 0;
+    }
+    .yt-btn:hover { opacity: 0.88; transform: translateY(-2px); }
+
+    @media (max-width: 600px) {
+      .yt-banner { padding: 28px 24px; }
+    }
+
+    /* ---- SPEAKER FILTER CARDS ---- */
+    .speaker-cards {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 24px;
+      margin-bottom: 48px;
+    }
+    .speaker-card {
+      background: var(--navy-light);
+      border: 1px solid rgba(212,160,23,0.15);
+      border-radius: var(--radius-lg);
+      padding: 28px 24px;
+      display: flex; align-items: center; gap: 18px;
+      cursor: pointer;
+      transition: border-color 0.2s, transform 0.2s, box-shadow 0.2s;
+    }
+    .speaker-card:hover, .speaker-card.active {
+      border-color: var(--gold);
+      transform: translateY(-3px);
+      box-shadow: 0 12px 32px rgba(0,0,0,0.4);
+    }
+    .speaker-avatar {
+      width: 56px; height: 56px; border-radius: 50%;
+      object-fit: cover; object-position: top;
+      border: 2px solid var(--gold); flex-shrink: 0;
+    }
+    .speaker-info { flex: 1; }
+    .speaker-info .card-meta { font-size: 0.68rem; margin-bottom: 3px; }
+    .speaker-info h4 {
+      font-family: var(--font-heading); font-size: 0.9rem; font-weight: 900;
+      text-transform: uppercase; letter-spacing: 0.03em; color: var(--white);
+      margin-bottom: 2px;
+    }
+    .speaker-info span {
+      font-size: 0.78rem; color: rgba(255,255,255,0.45);
+    }
+
+    /* ---- PAGINATION ---- */
+    .pagination {
+      display: flex; align-items: center; justify-content: center;
+      gap: 8px; margin-top: 48px;
+    }
+    .page-btn {
+      width: 40px; height: 40px; border-radius: 8px;
+      background: var(--navy-light); border: 1px solid rgba(212,160,23,0.15);
+      color: rgba(255,255,255,0.65);
+      font-family: var(--font-heading); font-size: 0.8rem; font-weight: 700;
+      cursor: pointer; display: flex; align-items: center; justify-content: center;
+      transition: all 0.2s;
+    }
+    .page-btn:hover, .page-btn.active {
+      background: var(--gold); color: var(--navy); border-color: var(--gold);
+    }
+    .page-btn-arrow { width: 40px; height: 40px; }
+  </style>
+</head>
+
+<body>
+
+  <!-- =============================================
+       NAVIGATION
+       ============================================= -->
+  <nav class="navbar" id="navbar">
+    <div class="nav-container">
+      <a href="index.html" class="nav-logo">
+        <div class="nav-logo-img-wrap">
+          <img src="images/logo.png" alt="His House Church">
+        </div>
+        <div class="nav-logo-text-wrap">
+          <span class="nav-logo-text">His House Church</span>
+          <span class="nav-logo-sub">Clubview · Centurion</span>
+        </div>
+      </a>
+      <ul class="nav-menu" id="navMenu">
+        <li><a href="index.html"   class="nav-link">Home</a></li>
+        <li><a href="about.html"   class="nav-link">About</a></li>
+        <li><a href="sermons.html" class="nav-link active">Sermons</a></li>
+        <li><a href="events.html"  class="nav-link">Events</a></li>
+        <li><a href="contact.html" class="nav-link">Contact</a></li>
+      </ul>
+      <a href="contact.html" class="btn btn-gold nav-cta">Plan Your Visit</a>
+      <button class="hamburger" id="hamburger" aria-label="Open menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
+
+
+  <main>
+
+    <!-- =============================================
+         PAGE HERO
+         ============================================= -->
+    <section class="page-hero">
+      <div class="page-hero-bg"></div>
+      <div class="page-hero-overlay"></div>
+      <div class="page-hero-content reveal">
+        <div class="page-hero-breadcrumb">
+          <a href="index.html">Home</a>
+          <i class="fas fa-chevron-right"></i>
+          <span>Sermons</span>
+        </div>
+        <span class="script-accent">The Word</span>
+        <h1>Sermons <span class="text-gold">&amp; Messages</span></h1>
+        <p>Every Sunday message from Senior Pastors Musa and Nozuko Mabasa — watch, listen, and be equipped to walk in Dominion.</p>
+      </div>
+    </section>
+
+
+    <!-- =============================================
+         FEATURED SERMON
+         ============================================= -->
+    <section class="featured-sermon">
+      <div class="container">
+        <div class="section-heading reveal" style="margin-bottom:40px;">
+          <span class="script-accent">Latest message</span>
+          <h2>Featured <span class="text-gold">Sermon</span></h2>
+          <div class="divider-line"></div>
+        </div>
+
+        <div class="featured-inner">
+          <!-- Thumbnail / Video -->
+          <div class="reveal">
+            <div class="featured-video-wrap">
+              <img src="images/sermon-featured.jpg" alt="Walking in Dominion — Pastor Musa Mabasa">
+              <span class="featured-badge">Latest · April 2026</span>
+              <a href="https://youtube.com/@hishousechurch7593" target="_blank" class="featured-play-btn" aria-label="Watch sermon on YouTube">
+                <i class="fas fa-play"></i>
+              </a>
+            </div>
+          </div>
+
+          <!-- Text -->
+          <div class="featured-text reveal reveal-delay-2">
+            <span class="script-accent">This week's message</span>
+            <div class="featured-series-tag">
+              <i class="fas fa-layer-group"></i>
+              The Dominion Series · Genesis 1:28
+            </div>
+            <h2>Walking in <span class="text-gold">Dominion</span></h2>
+            <p>God did not create you to merely survive — He created you to have dominion. In this powerful Sunday Celebration message, Pastor Musa unpacks the mandate of Genesis 1:28 and what it means to exercise your God-given authority in your home, your work, and your community.</p>
+            <div class="featured-meta">
+              <div class="featured-meta-item">
+                <i class="fas fa-user"></i> Pastor Musa Mabasa
+              </div>
+              <div class="featured-meta-item">
+                <i class="fas fa-calendar"></i> 6 April 2026
+              </div>
+              <div class="featured-meta-item">
+                <i class="fas fa-clock"></i> 47 mins
+              </div>
+            </div>
+            <div style="display:flex; gap:14px; flex-wrap:wrap;">
+              <a href="https://youtube.com/@hishousechurch7593" target="_blank" class="btn btn-gold">
+                <i class="fab fa-youtube" style="margin-right:8px;"></i>Watch on YouTube
+              </a>
+              <a href="sermons.html" class="btn btn-outline">All Sermons</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+
+    <!-- =============================================
+         DOMINION SERIES BANNER
+         ============================================= -->
+    <section class="dominion-banner">
+      <div class="dominion-inner reveal">
+        <div class="dominion-text">
+          <span class="script-accent">His House Church's signature series</span>
+          <h2>The <span class="text-gold">#Dominion</span> Series</h2>
+          <p>Grounded in the mandate of Genesis 1:28, the Dominion Series is the theological heartbeat of His House Church. Pastor Musa teaches believers to take their God-given authority into every sphere of life — family, career, community, and beyond.</p>
+          <a href="https://youtube.com/@hishousechurch7593" target="_blank" class="btn btn-gold" style="margin-top:24px; display:inline-flex; align-items:center; gap:8px;">
+            <i class="fas fa-play-circle"></i> Watch the Series
+          </a>
+        </div>
+        <div class="dominion-scripture">
+          <span class="ref">Genesis 1:28</span>
+          <p>"Be fruitful and increase in number; fill the earth and subdue it."</p>
+          <span class="hashtag">#Dominion</span>
+        </div>
+      </div>
+    </section>
+
+
+    <!-- =============================================
+         SERMON GRID
+         ============================================= -->
+    <section class="sermons-section">
+      <div class="container">
+
+        <!-- Browse by Speaker -->
+        <div class="section-heading reveal" style="margin-bottom:32px; text-align:left;">
+          <span class="script-accent">Browse by speaker</span>
+          <h2>Our <span class="text-gold">Speakers</span></h2>
+        </div>
+
+        <div class="speaker-cards reveal">
+          <div class="speaker-card active">
+            <img src="images/pastors.jpg" alt="Pastor Musa Mabasa" class="speaker-avatar">
+            <div class="speaker-info">
+              <p class="card-meta">Senior Pastor</p>
+              <h4>Pastor Musa Mabasa</h4>
+              <span>32 messages</span>
+            </div>
+          </div>
+          <div class="speaker-card">
+            <img src="images/pastors.jpg" alt="Pastor Nozuko Mabasa" class="speaker-avatar">
+            <div class="speaker-info">
+              <p class="card-meta">Senior Pastor</p>
+              <h4>Pastor Nozuko Mabasa</h4>
+              <span>18 messages</span>
+            </div>
+          </div>
+          <div class="speaker-card">
+            <img src="images/logo.png" alt="Guest Speaker" class="speaker-avatar" style="object-fit:contain; background:var(--navy-mid); padding:6px;">
+            <div class="speaker-info">
+              <p class="card-meta">Various</p>
+              <h4>Guest Speakers</h4>
+              <span>6 messages</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Filter Bar -->
+        <div class="filter-bar reveal">
+          <button class="filter-btn active" onclick="setFilter(this, 'all')">All</button>
+          <button class="filter-btn" onclick="setFilter(this, 'dominion')">Dominion Series</button>
+          <button class="filter-btn" onclick="setFilter(this, 'family')">Family</button>
+          <button class="filter-btn" onclick="setFilter(this, 'faith')">Faith</button>
+          <button class="filter-btn" onclick="setFilter(this, 'purpose')">Purpose</button>
+          <div class="filter-search">
+            <input type="text" placeholder="Search sermons…" aria-label="Search sermons">
+            <button aria-label="Search"><i class="fas fa-search"></i></button>
+          </div>
+        </div>
+
+        <!-- Dominion Series Feature Row -->
+        <div class="series-feature-row reveal">
+          <div class="series-icon-large"><i class="fas fa-crown"></i></div>
+          <div class="series-feature-text">
+            <p class="series-label">Featured Series</p>
+            <h3>The <span class="text-gold">Dominion Series</span> — Genesis 1:28</h3>
+            <p>Pastor Musa's flagship teaching series — equipping you with the biblical mandate to walk in authority, build your family, and impact your community. 12 messages available on YouTube.</p>
+          </div>
+          <div class="series-feature-cta">
+            <a href="https://youtube.com/@hishousechurch7593" target="_blank" class="btn btn-gold">
+              Watch Series
+            </a>
+          </div>
+        </div>
+
+        <!-- Sermon Grid -->
+        <div class="sermon-grid">
+
+          <!-- Sermon 1 -->
+          <div class="sermon-card reveal reveal-delay-1">
+            <div class="sermon-thumb">
+              <img src="images/sermon-featured.jpg" alt="Walking in Dominion">
+              <div class="sermon-thumb-overlay"><div class="thumb-play"><i class="fas fa-play"></i></div></div>
+              <span class="sermon-series-pill">Dominion Series</span>
+            </div>
+            <div class="sermon-body">
+              <p class="card-meta">Pastor Musa Mabasa</p>
+              <h3 class="sermon-title">Walking in Dominion</h3>
+              <p class="sermon-excerpt">God's mandate for every believer is not survival — it's dominion. Discover what Genesis 1:28 means for your everyday life.</p>
+              <div class="sermon-footer">
+                <span class="sermon-date">6 Apr 2026</span>
+                <a href="https://youtube.com/@hishousechurch7593" target="_blank" class="sermon-watch-link">
+                  Watch Now <i class="fas fa-arrow-right"></i>
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <!-- Sermon 2 -->
+          <div class="sermon-card reveal reveal-delay-2">
+            <div class="sermon-thumb">
+              <img src="images/sermon-featured.jpg" alt="His House Your Family">
+              <div class="sermon-thumb-overlay"><div class="thumb-play"><i class="fas fa-play"></i></div></div>
+              <span class="sermon-series-pill">Family</span>
+            </div>
+            <div class="sermon-body">
+              <p class="card-meta">Pastor Nozuko Mabasa</p>
+              <h3 class="sermon-title">His House, Your Family</h3>
+              <p class="sermon-excerpt">The church is not a building — it is a family. Pastor Nozuko unpacks what it means to truly belong to the house of God.</p>
+              <div class="sermon-footer">
+                <span class="sermon-date">30 Mar 2026</span>
+                <a href="https://youtube.com/@hishousechurch7593" target="_blank" class="sermon-watch-link">
+                  Watch Now <i class="fas fa-arrow-right"></i>
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <!-- Sermon 3 -->
+          <div class="sermon-card reveal reveal-delay-3">
+            <div class="sermon-thumb">
+              <img src="images/sermon-featured.jpg" alt="Bring a Soul">
+              <div class="sermon-thumb-overlay"><div class="thumb-play"><i class="fas fa-play"></i></div></div>
+              <span class="sermon-series-pill">Purpose</span>
+            </div>
+            <div class="sermon-body">
+              <p class="card-meta">Pastor Musa Mabasa</p>
+              <h3 class="sermon-title">Bring a Soul — The Great Commission</h3>
+              <p class="sermon-excerpt">We are called to grow the Kingdom — one soul at a time. A clarion call to every HHC member to bring someone to church this Sunday.</p>
+              <div class="sermon-footer">
+                <span class="sermon-date">23 Mar 2026</span>
+                <a href="https://youtube.com/@hishousechurch7593" target="_blank" class="sermon-watch-link">
+                  Watch Now <i class="fas fa-arrow-right"></i>
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <!-- Sermon 4 -->
+          <div class="sermon-card reveal reveal-delay-1">
+            <div class="sermon-thumb">
+              <img src="images/sermon-featured.jpg" alt="Faith That Moves Mountains">
+              <div class="sermon-thumb-overlay"><div class="thumb-play"><i class="fas fa-play"></i></div></div>
+              <span class="sermon-series-pill">Faith</span>
+            </div>
+            <div class="sermon-body">
+              <p class="card-meta">Pastor Nozuko Mabasa</p>
+              <h3 class="sermon-title">Faith That Moves Mountains</h3>
+              <p class="sermon-excerpt">What does it look like to trust God completely — especially when you cannot see the way forward? A word on bold, unwavering faith.</p>
+              <div class="sermon-footer">
+                <span class="sermon-date">16 Mar 2026</span>
+                <a href="https://youtube.com/@hishousechurch7593" target="_blank" class="sermon-watch-link">
+                  Watch Now <i class="fas fa-arrow-right"></i>
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <!-- Sermon 5 -->
+          <div class="sermon-card reveal reveal-delay-2">
+            <div class="sermon-thumb">
+              <img src="images/sermon-featured.jpg" alt="Subdue the Earth">
+              <div class="sermon-thumb-overlay"><div class="thumb-play"><i class="fas fa-play"></i></div></div>
+              <span class="sermon-series-pill">Dominion Series</span>
+            </div>
+            <div class="sermon-body">
+              <p class="card-meta">Pastor Musa Mabasa</p>
+              <h3 class="sermon-title">Subdue the Earth</h3>
+              <p class="sermon-excerpt">Part 2 of the Dominion Series — what does it mean to subdue? Pastor Musa draws from Genesis and the New Testament to answer this question powerfully.</p>
+              <div class="sermon-footer">
+                <span class="sermon-date">9 Mar 2026</span>
+                <a href="https://youtube.com/@hishousechurch7593" target="_blank" class="sermon-watch-link">
+                  Watch Now <i class="fas fa-arrow-right"></i>
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <!-- Sermon 6 -->
+          <div class="sermon-card reveal reveal-delay-3">
+            <div class="sermon-thumb">
+              <img src="images/sermon-featured.jpg" alt="Fruitful in Every Season">
+              <div class="sermon-thumb-overlay"><div class="thumb-play"><i class="fas fa-play"></i></div></div>
+              <span class="sermon-series-pill">Purpose</span>
+            </div>
+            <div class="sermon-body">
+              <p class="card-meta">Pastor Musa Mabasa</p>
+              <h3 class="sermon-title">Fruitful in Every Season</h3>
+              <p class="sermon-excerpt">God's command to be fruitful is not conditional on your circumstances. A message on bearing spiritual fruit in every season of life.</p>
+              <div class="sermon-footer">
+                <span class="sermon-date">2 Mar 2026</span>
+                <a href="https://youtube.com/@hishousechurch7593" target="_blank" class="sermon-watch-link">
+                  Watch Now <i class="fas fa-arrow-right"></i>
+                </a>
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+        <!-- Pagination -->
+        <div class="pagination reveal">
+          <button class="page-btn page-btn-arrow" aria-label="Previous page">
+            <i class="fas fa-chevron-left"></i>
+          </button>
+          <button class="page-btn active">1</button>
+          <button class="page-btn">2</button>
+          <button class="page-btn">3</button>
+          <button class="page-btn page-btn-arrow" aria-label="Next page">
+            <i class="fas fa-chevron-right"></i>
+          </button>
+        </div>
+
+        <!-- YouTube Subscribe Banner -->
+        <div class="yt-banner reveal">
+          <div class="yt-icon"><i class="fab fa-youtube"></i></div>
+          <div class="yt-text">
+            <h3>Subscribe on <span class="text-gold">YouTube</span></h3>
+            <p>New messages uploaded every week after Sunday Celebration Service. Visit <a href="https://youtube.com/@hishousechurch7593" target="_blank">@hishousechurch7593</a> and never miss a word.</p>
+          </div>
+          <a href="https://youtube.com/@hishousechurch7593" target="_blank" class="yt-btn">
+            <i class="fab fa-youtube"></i> Subscribe Free
+          </a>
+        </div>
+
+      </div>
+    </section>
+
+
+    <!-- =============================================
+         JOIN US CTA
+         ============================================= -->
+    <section class="section text-center">
+      <div class="container">
+        <div class="reveal" style="max-width:640px; margin:0 auto;">
+          <span class="script-accent" style="font-size:1.5rem;">Experience it live</span>
+          <h2>Hear the Word <span class="text-gold">in Person</span></h2>
+          <p style="margin:16px 0 32px; font-size:1.05rem; color:rgba(255,255,255,0.72);">Watching online is great — but there's nothing like being in the room. Join us every Sunday at 10:00 AM at 207 Utrecht Avenue, Clubview, Centurion.</p>
+          <div class="btn-gap">
+            <a href="contact.html" class="btn btn-gold">Plan Your Visit</a>
+            <a href="events.html" class="btn btn-outline">View All Events</a>
+          </div>
+          <p style="margin-top:24px; font-size:0.85rem; color:rgba(255,255,255,0.4);">
+            <i class="fas fa-child" style="color:var(--gold); margin-right:6px;"></i>
+            Children's Church available every Sunday
+          </p>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+
+  <!-- =============================================
+       FOOTER
+       ============================================= -->
+  <footer class="site-footer">
+    <div class="footer-container">
+      <div class="footer-grid">
+        <div class="footer-col">
+          <img src="images/logo.png" alt="His House Church" height="56" class="footer-logo">
+          <p class="footer-tagline">
+            Where Dominion Begins at Home<br>
+            <em style="color:var(--gold)">Genesis 1:28 #Dominion</em>
+          </p>
+        </div>
+        <div class="footer-col">
+          <h4 class="footer-heading">Join Us</h4>
+          <p>Sunday Celebration Service</p>
+          <p style="color:var(--gold); font-weight:700">Every Sunday · 10:00 AM</p>
+          <p>207 Utrecht Avenue<br>Clubview, Centurion 0014</p>
+          <a href="tel:+27790292763" class="footer-phone">079-029-2763</a>
+        </div>
+        <div class="footer-col">
+          <h4 class="footer-heading">Quick Links</h4>
+          <ul class="footer-links">
+            <li><a href="about.html">About Us</a></li>
+            <li><a href="sermons.html">Sermons</a></li>
+            <li><a href="events.html">Events</a></li>
+            <li><a href="giving.html">Online Giving</a></li>
+            <li><a href="contact.html">Contact</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4 class="footer-heading">Follow Us</h4>
+          <div class="social-icons">
+            <a href="https://facebook.com/hishousechurch" target="_blank" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+            <a href="https://instagram.com/hishousechurch" target="_blank" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+            <a href="https://youtube.com/@hishousechurch7593" target="_blank" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+            <a href="https://twitter.com/hishousechurch" target="_blank" aria-label="Twitter/X"><i class="fab fa-x-twitter"></i></a>
+          </div>
+          <p class="footer-children">
+            <i class="fas fa-child" style="color:var(--gold)"></i>
+            Children's Church available every Sunday
+          </p>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>© 2026 His House Church · Celebrating 10 Years of God's Grace</p>
+        <p>Senior Pastors: Musa &amp; Nozuko Mabasa · 207 Utrecht Avenue, Clubview, Centurion</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+  <script>
+    /* Simple filter button toggle */
+    function setFilter(btn, category) {
+      document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      /* In production this would filter the sermon-grid cards */
+    }
+
+    /* Speaker card selection */
+    document.querySelectorAll('.speaker-card').forEach(card => {
+      card.addEventListener('click', () => {
+        document.querySelectorAll('.speaker-card').forEach(c => c.classList.remove('active'));
+        card.classList.add('active');
+      });
+    });
+
+    /* Pagination */
+    document.querySelectorAll('.page-btn:not(.page-btn-arrow)').forEach(btn => {
+      btn.addEventListener('click', () => {
+        document.querySelectorAll('.page-btn:not(.page-btn-arrow)').forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+      });
+    });
+  </script>
+
+</body>
+</html>
